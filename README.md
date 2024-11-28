@@ -120,6 +120,7 @@ import java.net.*;
 
 public class ExemploIOException {
     public static void main(String[] args) {
+        String arquivo = "resposta.txt";
         String host = "example.com";
         int porta = 80;
         
@@ -127,7 +128,7 @@ public class ExemploIOException {
             Socket socket = new Socket(host, porta);
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            FileWriter fileWriter = new FileWriter("resposta.txt");
+            FileWriter fileWriter = new FileWriter(arquivo);
             
             // Enviar requisição HTTP GET
             out.println("GET / HTTP/1.1");
@@ -140,12 +141,10 @@ public class ExemploIOException {
                 fileWriter.write(linha + "\n");
             }
             
-            System.out.println("Resposta salva em resposta.txt");
+            System.out.println("Resposta salva em " + arquivo);
             
-        } catch (SocketException e) {
-            System.err.println("Erro de socket: " + e.getMessage());
         } catch (IOException e) {
-            System.err.println("Erro de E/S: " + e.getMessage());
+            System.err.println(e.toString());
         }
     }
 }
