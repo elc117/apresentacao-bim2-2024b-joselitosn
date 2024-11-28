@@ -8,7 +8,7 @@
 > Uma exceção é um evento que ocorre durante a execução de um programa e interrompe o fluxo normal das instruções do programa. 
 
 Podem ser vistas de duas formas:
-- por categoria (verificadas e não verificadas);
+- por categoria (checadas e não checadas);
 - por hierarquia de classes.
 
 ## Hierarquia de Classes de Exceções
